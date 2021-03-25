@@ -12,7 +12,7 @@
         </div>
         <div class="col">
           <router-link to="/foods" class="btn btn-danger float-right">
-            <b-icon-eye></b-icon-eye>Lihat Semua
+            Lihat Semua <b-icon-chevron-right></b-icon-chevron-right>
           </router-link>
         </div>
       </div>
@@ -35,7 +35,7 @@
         </div>
         <div class="col">
           <router-link to="/foods" class="btn btn-danger float-right">
-            <b-icon-eye></b-icon-eye>Lihat Semua
+            Lihat Semua <b-icon-chevron-right></b-icon-chevron-right>
           </router-link>
         </div>
       </div>
