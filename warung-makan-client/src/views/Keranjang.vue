@@ -13,7 +13,9 @@
               <li class="breadcrumb-item">
                 <router-link to="/foods" class="text-dark">Foods</router-link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">Keranjang</li>
+              <li class="breadcrumb-item active" aria-current="page">
+                Keranjang
+              </li>
             </ol>
           </nav>
         </div>
@@ -40,11 +42,14 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="(keranjang, index) in keranjangs" :key="keranjang.id">
-                  <th>{{index+1}}</th>
+                <tr
+                  v-for="(keranjang, index) in keranjangs"
+                  :key="keranjang.id"
+                >
+                  <th>{{ index + 1 }}</th>
                   <td>
                     <img
-                      :src=" '../assets/images/' + keranjang.products.gambar "
+                      :src="'../assets/images/' + keranjang.products.gambar"
                       class="img-fluid img-keranjang shadow"
                       width="250"
                     />
@@ -52,14 +57,23 @@
                   <td>
                     <strong>{{ keranjang.products.nama }}</strong>
                   </td>
-                  <td>{{ keranjang.keterangan ? keranjang.keterangan : "-" }}</td>
+                  <td>
+                    {{ keranjang.keterangan ? keranjang.keterangan : "-" }}
+                  </td>
                   <td>{{ keranjang.jumlah_pemesanan }}</td>
                   <td align="right">Rp. {{ keranjang.products.harga }}</td>
                   <td align="right">
-                    <strong>Rp. {{ keranjang.products.harga*keranjang.jumlah_pemesanan }}</strong>
+                    <strong
+                      >Rp.
+                      {{
+                        keranjang.products.harga * keranjang.jumlah_pemesanan
+                      }}</strong
+                    >
                   </td>
                   <td align="center" class="text-danger">
-                    <b-icon-trash @click="hapusKeranjang(keranjang.id)"></b-icon-trash>
+                    <b-icon-trash
+                      @click="hapusKeranjang(keranjang.id)"
+                    ></b-icon-trash>
                   </td>
                 </tr>
 
@@ -91,8 +105,12 @@
               <input type="text" class="form-control" v-model="pesan.noMeja" />
             </div>
 
-            <button type="submit" class="btn btn-success float-right" @click="checkout">
-              <b-icon-cart></b-icon-cart>Pesan
+            <button
+              type="submit"
+              class="btn btn-danger float-right"
+              @click="checkout"
+            >
+              Pesan <b-icon-cart-plus></b-icon-cart-plus>
             </button>
           </form>
         </div>
@@ -143,13 +161,13 @@ export default {
         axios
           .post("http://localhost:3000/pesanans", this.pesan)
           .then(() => {
-            // Hapus Semua Keranjang 
+            // Hapus Semua Keranjang
             this.keranjangs.map(function (item) {
               return axios
                 .delete("http://localhost:3000/keranjangs/" + item.id)
                 .catch((error) => console.log(error));
             });
-            this.$router.push({ path: "/pesanan-sukses" });
+            this.$router.push({ path: "/pesanan" });
             this.$toast.success("Sukses Dipesan", {
               type: "success",
               position: "top-right",

@@ -21,7 +21,7 @@
             <li class="nav-item">
               <router-link class="nav-link" to="/keranjang">
                 Keranjang
-                <b-icon-bag></b-icon-bag>
+                <b-icon-cart></b-icon-cart>
                 <span
                   class="badge badge-success ml-2"
                 >{{ updateKeranjang ? updateKeranjang.length : jumlah_pesanans.length }}</span>
