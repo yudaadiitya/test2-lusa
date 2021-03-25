@@ -6,7 +6,7 @@
     font-weight: bold;
 }
 
-.btn-success {
+.btn-danger {
     background-color: #FF6363;
 }
 
@@ -20,4 +20,21 @@
 .card-img-top {
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
+    height: 215px;
+}
+.breadcrumb {
+    background-color: transparent;
+    padding: 0;
+}
+
+.breadcrumb-item.active {
+    font-weight: bold;
+    color: black;
+}
+
+
+.img-fluid {
+    border-radius: 15px;
+    height: 360px;
+    width: 540px;
 }

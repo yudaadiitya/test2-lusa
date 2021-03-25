@@ -11,7 +11,7 @@
                 <br />in Your Gadget
               </h2>
               <p>Ayo segera pilih dan pesan makanan favorit Anda</p>
-              <router-link class="btn btn-lg btn-success" to="/foods">
+              <router-link class="btn btn-lg btn-danger" to="/foods">
                 <b-icon-arrow-right></b-icon-arrow-right>Pesan
               </router-link>
             </div>
