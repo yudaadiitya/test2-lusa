@@ -21,7 +21,7 @@
 
       <div class="row mt-3">
         <div class="col-md-6">
-          <img :src=" '../assets/images/' + product.gambar " class="img-fluid shadow" />
+          <img :src=" '../assets/images/' + product.gambar " class="img-fluid img-detail shadow" />
         </div>
         <div class="col-md-6">
           <h2>
@@ -81,7 +81,7 @@ export default {
           .post("http://localhost:3000/keranjangs", this.pesan)
           .then(() => {
             this.$router.push({ path: "/keranjang"})
-            this.$toast.success("Sukses Masuk Keranjang", {
+            this.$toast.success("Sukses Masuk Daftar Pesanan", {
               type: "success",
               position: "top-right",
               duration: 3000,

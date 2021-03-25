@@ -99,47 +99,31 @@
       "gambar": "lontong-opor-ayam.jpg"
     }
   ],
-  "keranjangs": [],
-  "pesanans": [
+  "keranjangs": [
     {
-      "nama": "ade",
-      "noMeja": "2",
-      "keranjangs": [
-        {
-          "jumlah_pemesanan": "1",
-          "keterangan": "pedas",
-          "products": {
-            "id": 2,
-            "kode": "K-02",
-            "nama": "Nasi Goreng Telur",
-            "harga": 14000,
-            "is_ready": true,
-            "gambar": "nasi-goreng-telor.jpg"
-          },
-          "id": 1
-        }
-      ],
+      "jumlah_pemesanan": "2",
+      "products": {
+        "id": 1,
+        "kode": "K-01",
+        "nama": "Sate Ayam",
+        "harga": 16000,
+        "is_ready": true,
+        "gambar": "sate-ayam.jpg"
+      },
       "id": 1
     },
     {
-      "nama": "ade",
-      "noMeja": "22",
-      "keranjangs": [
-        {
-          "jumlah_pemesanan": "2",
-          "keterangan": "pedas",
-          "products": {
-            "id": 1,
-            "kode": "K-01",
-            "nama": "Sate Ayam",
-            "harga": 16000,
-            "is_ready": true,
-            "gambar": "sate-ayam.jpg"
-          },
-          "id": 1
-        }
-      ],
+      "jumlah_pemesanan": "3",
+      "products": {
+        "id": 2,
+        "kode": "K-02",
+        "nama": "Nasi Goreng Telur",
+        "harga": 14000,
+        "is_ready": true,
+        "gambar": "nasi-goreng-telor.jpg"
+      },
       "id": 2
     }
-  ]
+  ],
+  "pesanans": []
 }
