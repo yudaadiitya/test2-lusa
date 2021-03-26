@@ -13,9 +13,7 @@
               <li class="breadcrumb-item">
                 <router-link to="/foods" class="text-dark">Foods</router-link>
               </li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Keranjang
-              </li>
+              <li class="breadcrumb-item active" aria-current="page">Keranjang</li>
             </ol>
           </nav>
         </div>
@@ -42,38 +40,26 @@
                 </tr>
               </thead>
               <tbody>
-                <tr
-                  v-for="(keranjang, index) in keranjangs"
-                  :key="keranjang.id"
-                >
-                  <th>{{ index + 1 }}</th>
+                <tr v-for="(keranjang, index) in keranjangs" :key="keranjang.id">
+                  <th>{{index+1}}</th>
                   <td>
                     <img
-                      :src="'../assets/images/' + keranjang.products.gambar"
-                      class="img-fluid img-keranjang shadow"
+                      :src=" '../assets/images/' + keranjang.products.gambar "
+                      class="img-fluid shadow"
                       width="250"
                     />
                   </td>
                   <td>
                     <strong>{{ keranjang.products.nama }}</strong>
                   </td>
-                  <td>
-                    {{ keranjang.keterangan ? keranjang.keterangan : "-" }}
-                  </td>
+                  <td>{{ keranjang.keterangan ? keranjang.keterangan : "-" }}</td>
                   <td>{{ keranjang.jumlah_pemesanan }}</td>
                   <td align="right">Rp. {{ keranjang.products.harga }}</td>
                   <td align="right">
-                    <strong
-                      >Rp.
-                      {{
-                        keranjang.products.harga * keranjang.jumlah_pemesanan
-                      }}</strong
-                    >
+                    <strong>Rp. {{ keranjang.products.harga*keranjang.jumlah_pemesanan }}</strong>
                   </td>
                   <td align="center" class="text-danger">
-                    <b-icon-trash
-                      @click="hapusKeranjang(keranjang.id)"
-                    ></b-icon-trash>
+                    <b-icon-trash @click="hapusKeranjang(keranjang.id)"></b-icon-trash>
                   </td>
                 </tr>
 
@@ -105,12 +91,8 @@
               <input type="text" class="form-control" v-model="pesan.noMeja" />
             </div>
 
-            <button
-              type="submit"
-              class="btn btn-danger float-right"
-              @click="checkout"
-            >
-              Pesan <b-icon-cart-plus></b-icon-cart-plus>
+            <button type="submit" class="btn btn-success float-right" @click="checkout">
+              <b-icon-cart></b-icon-cart>Pesan
             </button>
           </form>
         </div>
@@ -139,7 +121,7 @@ export default {
     },
     hapusKeranjang(id) {
       axios
-        .delete("http://localhost:3000/keranjangs/" + id)
+        .delete("http://localhost:3001/api/keranjangs/" + id)
         .then(() => {
           this.$toast.error("Sukses Hapus Keranjang", {
             type: "error",
@@ -149,7 +131,7 @@ export default {
           });
           // Update Data keranjang
           axios
-            .get("http://localhost:3000/keranjangs")
+            .get("http://localhost:3001/api/keranjangs")
             .then((response) => this.setKeranjangs(response.data))
             .catch((error) => console.log(error));
         })
@@ -159,12 +141,12 @@ export default {
       if (this.pesan.nama && this.pesan.noMeja) {
         this.pesan.keranjangs = this.keranjangs;
         axios
-          .post("http://localhost:3000/pesanans", this.pesan)
+          .post("http://localhost:3001/api/pesanan", this.pesan)
           .then(() => {
-            // Hapus Semua Keranjang
+            // Hapus Semua Keranjang 
             this.keranjangs.map(function (item) {
               return axios
-                .delete("http://localhost:3000/keranjangs/" + item.id)
+                .delete("http://localhost:3001/api/keranjangs/" + item.id)
                 .catch((error) => console.log(error));
             });
             this.$router.push({ path: "/pesanan" });
@@ -188,7 +170,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/keranjangs")
+      .get("http://localhost:3001/api/keranjangs")
       .then((response) => this.setKeranjangs(response.data))
       .catch((error) => console.log(error));
   },

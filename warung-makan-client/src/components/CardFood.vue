@@ -6,7 +6,7 @@
       <p
         class="card-text"
       >Harga : Rp. {{ product.harga }}</p>
-     <router-link class="btn btn-danger" :to="'/foods/'+product.id">Pesan <b-icon-cart-plus></b-icon-cart-plus></router-link>
+     <router-link class="btn btn-danger" :to="'/foods/'+product._id"> Pesan<b-icon-cart-plus></b-icon-cart-plus></router-link>
     </div>
   </div>
 </template>

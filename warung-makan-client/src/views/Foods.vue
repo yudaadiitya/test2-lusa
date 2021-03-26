@@ -76,7 +76,7 @@ export default {
   },
   mounted() {
     axios
-      .get("http://localhost:3000/products")
+      .get("http://localhost:3001/api/products")
       .then((response) => this.setProducts(response.data))
       .catch((error) => console.log(error));
   },
